@@ -6,6 +6,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_ausente).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']). to eql 'E-mail não deve ser vazio' }
     end
 
@@ -13,6 +14,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_vazio).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']).to eql('E-mail deve ser um e-mail válido').or eql ('não é um endereço de e-mail')}
     end
 
@@ -20,6 +22,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_existente).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']).to eql('Email duplicado')}
     end
 
@@ -27,6 +30,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_fora_do_padrao_um).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']).to eql('E-mail deve ser um e-mail válido').or eql ('não é um endereço de e-mail')}
         
     end
@@ -35,6 +39,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_fora_do_padrao_dois).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']).to eql('E-mail deve ser um e-mail válido').or eql ('não é um endereço de e-mail')}
     end
 
@@ -42,6 +47,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_fora_do_padrao_tres).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']).to eql('E-mail deve ser um e-mail válido').or eql ('não é um endereço de e-mail')}
     end
 
@@ -49,6 +55,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_fora_do_padrao_quatro).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']).to eql('E-mail deve ser um e-mail válido').or eql ('não é um endereço de e-mail')}
     end
 
@@ -56,6 +63,7 @@ describe 'dado que sao inseridos dados invalidos para e-mail' do
         let(:result) { ApiUser.save(build(:user_email_fora_do_padrao_cinco).to_hash) }
 
         it { expect(result.response.code).to eql '400' }
+        it { expect(result.parsed_response). not_to be_nil }
         it { expect(result.parsed_response['erros']['email']).to eql('E-mail deve ser um e-mail válido').or eql ('não é um endereço de e-mail')}
     end
 end

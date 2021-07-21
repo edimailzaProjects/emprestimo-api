@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserModel
-    attr_accessor :nome, :cpf, :email, :valor, :parcelas, :seguro
+    attr_accessor :id, :nome, :cpf, :email, :valor, :parcelas, :seguro
 
     def to_hash
         {

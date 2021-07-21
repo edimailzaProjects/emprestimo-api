@@ -1,4 +1,3 @@
-# Projeto de automacao DBC Company 
 # API de Emprestimo
 
 require 'factory_bot'
@@ -6,8 +5,13 @@ require 'httparty'
 require 'httparty/request'
 require 'httparty/response/headers'
 
+@rspec_yml = YAML.load_file("#{Dir.pwd}/support/rspec.yml")
+@ambiente = @rspec_yml['ambiente']
+CONFIG = YAML.load_file("#{Dir.pwd}/support/data/#{@ambiente}.yml")
+
 require_relative 'lib/factories'
 require_relative 'service/user'
+
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
